@@ -5,7 +5,7 @@ import argparse
 
 ap = argparse.ArgumentParser()
 ap.add_argument("-l", "--labels", type=str,
-	help="path to labels.txt")
+	help="path to file containing all possible labels")
 ap.add_argument("-d", "--data", type=str,
 	help="path to data directory")
 
@@ -13,9 +13,9 @@ args = vars(ap.parse_args())
 
 labels_file = args['labels']
 with open(labels_file, 'r') as f:
-    labels_values = [x.strip() for x in f.readlines()]
+    labels_values = [x.strip() for x in f.readlines()]  # Get all label values as a list
 
-label_count = len(labels_values)
+label_count = len(labels_values)  # Number of labels
 
 data_dir = args["data"]
 if data_dir[-1] != '/':
@@ -23,9 +23,11 @@ if data_dir[-1] != '/':
 
 df = pd.read_csv(data_dir + 'train.csv')
 
+# Split the dataframe into text and labels
 text = df.iloc[:, 1]
 labels = df.iloc[:, 2:]
 
+# Required for joining the dataframes later
 text.reset_index(drop=True, inplace=True)
 labels.reset_index(drop=True, inplace=True)
 
@@ -33,11 +35,12 @@ labels_list = labels.values.tolist()
 labels_list = [[x] for x in labels_list]
 labels = pd.DataFrame(labels_list, columns=['labels'])
 
-train_temp = pd.concat([text, labels], axis=1)
-train_data = train_temp.rename({'comment_text': 'text'}, axis=1)
+train_temp = pd.concat([text, labels], axis=1)  # Concatenate dataframes vertically
+train_data = train_temp.rename({'comment_text': 'text'}, axis=1)  # Rename first column to 'text'
 
 train_df, eval_df = train_test_split(train_data, test_size=0.2)
 
+# Initialize the model (You can experiment with different models here)
 model = MultiLabelClassificationModel('roberta', 
                                     'roberta-base', 
                                     num_labels=label_count,  
@@ -59,7 +62,6 @@ to_predict = test_df.comment_text.apply(lambda x: x.replace('\n', ' ')).tolist()
 preds, outputs = model.predict(to_predict)
 
 sub_df = pd.DataFrame(outputs, columns=labels_values) 
-
 
 sub_df['id'] = test_df['id']
 sub_df = sub_df[['id'] + labels_values] 
