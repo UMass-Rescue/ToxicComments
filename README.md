@@ -4,11 +4,18 @@ Implementation to solve the toxic comment classification problem
 ### Installing the environment
 Note: You will need the Anaconda Package Manager to be able to run the code in this repo.
 Run the following command from the root directory, to create a conda environment for the code (you can replace myenv with any other environment name):
+
 ``` conda create --name myenv --file spec-file.txt ```
+
+Alternatively, to update an existing conda environment, run the following command:
+
+``` conda update --name myenv --file spec-file.txt ```
+
 Next, run the following command to activate your newly created environment:
+
 ``` conda activate myenv ```
 
-You might also need to install apex, which can be done by following the instructions [here](https://github.com/NVIDIA/apex)
+You might also need to install apex, which can be done by following the instructions [here](https://github.com/NVIDIA/apex) (try this if something breaks)
 
 You are now ready to run toxicity.py!
 
