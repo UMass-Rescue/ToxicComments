@@ -3,7 +3,6 @@ Implementation to solve the toxic comment classification problem
 
 ### Installing the environment
 Note: You will need the Anaconda Package Manager to be able to run the code in this repo.
-<<<<<<< HEAD
 Run the following command from the root directory, to create a conda environment for the code (you can replace toxicenv with any other environment name):
 
 ``` conda create --name toxicenv --file spec-file.txt ```
@@ -26,21 +25,6 @@ Alternatively, follow the directions here:
 - now run `pip install -v --no-cache-dir --global-option="--cpp_ext" --global-option="--cuda_ext" ./`
 - next, run `mv apex/apex ../ToxicComments/`
 - The goal of this process was to install apex, and then move the inner apex folder (yes, there's an apex folder inside the main apex folder) to the root dir, i.e. ToxicComments
-=======
-Run the following command from the root directory, to create a conda environment for the code (you can replace myenv with any other environment name):
-
-``` conda create --name myenv --file spec-file.txt ```
-
-Alternatively, to update an existing conda environment, run the following command:
-
-``` conda update --name myenv --file spec-file.txt ```
-
-Next, run the following command to activate your newly created environment:
-
-``` conda activate myenv ```
-
-You might also need to install apex, which can be done by following the instructions [here](https://github.com/NVIDIA/apex) (try this if something breaks)
->>>>>>> 565bebe07e2278ac14838d1072edba3a616ca67c
 
 You are now ready to run toxicity.py!
 
