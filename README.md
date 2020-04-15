@@ -3,12 +3,28 @@ Implementation to solve the toxic comment classification problem
 
 ### Installing the environment
 Note: You will need the Anaconda Package Manager to be able to run the code in this repo.
-Run the following command from the root directory, to create a conda environment for the code (you can replace myenv with any other environment name):
-``` conda create --name myenv --file spec-file.txt ```
-Next, run the following command to activate your newly created environment:
-``` conda activate myenv ```
+Run the following command from the root directory, to create a conda environment for the code (you can replace toxicenv with any other environment name):
 
-You might also need to install apex, which can be done by following the instructions [here](https://github.com/NVIDIA/apex)
+``` conda create --name toxicenv --file spec-file.txt ```
+
+Next, run the following command to activate your newly created environment:
+
+``` conda activate toxicenv ```
+
+Next, run the following command to install the simpletransformers library:
+
+``` pip install simpletransformers ```
+
+You might also need to install apex, which can be done by following the instructions [here](https://github.com/NVIDIA/apex). 
+
+Alternatively, follow the directions here:
+
+- run `cd..` to get out of the root directory
+- run `mkdir apex-tools` to create a new folder and then `cd apex-tools` to cd into it
+- run `git clone https://github.com/NVIDIA/apex` and then `cd apex`
+- now run `pip install -v --no-cache-dir --global-option="--cpp_ext" --global-option="--cuda_ext" ./`
+- next, run `mv apex/apex ../ToxicComments/`
+- The goal of this process was to install apex, and then move the inner apex folder (yes, there's an apex folder inside the main apex folder) to the root dir, i.e. ToxicComments
 
 You are now ready to run toxicity.py!
 
