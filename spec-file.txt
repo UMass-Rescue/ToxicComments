@@ -45,4 +45,6 @@ https://repo.anaconda.com/pkgs/main/linux-64/mkl_random-1.1.0-py38h962f231_0.tar
 https://repo.anaconda.com/pkgs/main/linux-64/numpy-1.18.1-py38h4f9e942_0.tar.bz2
 https://repo.anaconda.com/pkgs/main/linux-64/pandas-1.0.1-py38h0573a6f_0.tar.bz2
 https://conda.anaconda.org/pytorch/linux-64/pytorch-1.4.0-py3.8_cuda10.1.243_cudnn7.6.3_0.tar.bz2
+https://repo.anaconda.com/pkgs/main/linux-64/scipy-1.4.1-py38h0b6359f_0.tar.bz2
+https://repo.anaconda.com/pkgs/main/linux-64/scikit-learn-0.22.1-py38hd81dba3_0.tar.bz2
 https://conda.anaconda.org/pytorch/linux-64/torchvision-0.5.0-py38_cu101.tar.bz2
