@@ -49,7 +49,7 @@ model = MultiLabelClassificationModel('roberta',
                                         'learning_rate': 3e-5, 
                                         'num_train_epochs': 3, 
                                         'max_seq_length': 256,
-                                        'reprocess_input_data': True})
+                                        'reprocess_input_data': False})  # True if any other config values are changed (epochs, lr, etc)
 
 
 model.train_model(train_df)

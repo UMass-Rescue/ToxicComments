@@ -32,7 +32,11 @@ You are now ready to run toxicity.py!
 This file attempts to solve the Toxic Comment Challenge from Kaggle, which is essentially a multi-label classification problem. To run the file on the Kaggle dataset, as-is, simply run the following command:
 ```  python toxicity.py -l labels.txt -d ./data ```
 
-# Running Toxicity.py on your own dataset
+You can also change the hyperparameters by passing in a `dict` containing the relevant attributes to the `train_model` method.
+
+The train_model method will create a checkpoint (save) of the model at every nth step where n is `self.args['save_steps']`. Upon completion of training, the final model will be saved to `self.args['output_dir']`.
+
+## Running Toxicity.py on your own dataset
 If you want to run toxicity.py on your own data, you need to take the following steps:
 
 ### Lables.txt
@@ -42,3 +46,14 @@ This file contains all of your labels, separated by newlines. It is important to
 Make sure the data is in csv format, and that its structure is identical to the default dataset. The number of columns/labels don't matter. 
 
 And that's it! Happy classifying :)
+
+## Hardware
+This code was run on 4 NVIDIA GeForce GTX 1080 Ti GPUs, as well as Dan's machine (by Jagath).
+
+## Benchmarks
+NOTE: These results are relevant to the current dataset, but your mileage may vary with your own data.
+
+Submitting to kaggle nets a score of 0.98, where the score is the mean area under ROC curve.
+
+On 4 NVIDIA GeForce GTX 1080 Ti GPUs, 1 epoch on the training data takes 1.5 hours to finish.
+
